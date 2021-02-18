@@ -6,21 +6,21 @@ using NLog;
 namespace KeLi.HelloWindowService.App
 {
     internal static class Program
-	{
+    {
         private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
 
-		private static void Main()
+        private static void Main()
         {
             try
             {
-				var services = new ServiceBase[] { new TestService() };
+                var services = new ServiceBase[] { new TestService() };
 
-				ServiceBase.Run(services);
-			}
+                ServiceBase.Run(services);
+            }
             catch (Exception e)
             {
                 _logger.Fatal(e.ToString);
-			}
+            }
         }
     }
 }
