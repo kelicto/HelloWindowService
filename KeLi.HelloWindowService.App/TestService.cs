@@ -22,7 +22,7 @@ namespace KeLi.HelloWindowService.App
             }
             catch (Exception e)
             {
-                _logger.Info("OnStart error: {0}!", e.ToString());
+                _logger.Fatal("OnStart error: {0}!", e.ToString());
 			}
 		}
 
@@ -34,7 +34,7 @@ namespace KeLi.HelloWindowService.App
             }
             catch (Exception e)
             {
-                _logger.Info("OnStop error: {0}!", e.ToString());
+                _logger.Fatal("OnStop error: {0}!", e.ToString());
             }
 		}
     }
