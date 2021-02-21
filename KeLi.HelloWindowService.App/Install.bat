@@ -26,6 +26,8 @@ Echo ++++++++++ %DATE% %TIME% ++++++++++ >> Install.log
 
 Cd %~DP0 & Echo Install Path: "%CD%" >> Install.log
 
-%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe KeLi.HelloWindowService.App.exe >> Install.log
+:: If you added path "%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\" or "%SystemRoot%\Microsoft.NET\Framework64\v4.0.30319\"
+InstallUtil KeLi.HelloWindowService.App.exe >> Install.log
+
 Net Start TestService >> Install.log
 Sc Config TestService Start = Auto >> Install.log

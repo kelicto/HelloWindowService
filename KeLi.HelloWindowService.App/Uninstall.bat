@@ -26,4 +26,5 @@ Echo ++++++++++ %DATE% %TIME% ++++++++++ >> Uninstall.log
 
 Cd %~DP0 & Echo Uninstall Path: "%CD%" >> Install.log
 
-%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe /U KeLi.HelloWindowService.App.exe >> Uninstall.log
+:: If you added path "%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\" or "%SystemRoot%\Microsoft.NET\Framework64\v4.0.30319\"
+InstallUtil /U KeLi.HelloWindowService.App.exe >> Uninstall.log
