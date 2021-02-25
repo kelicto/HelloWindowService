@@ -22,9 +22,9 @@ Echo.>> Uninstall.log
 Echo ++++++++++ %DATE% %TIME% ++++++++++ >> Uninstall.log
 
 :: If the bat file isn't on current drive, should [Cd] to current drive letter.
-%~D0 & Echo Current Drive: "%~D0" >> Uninstall.log
+%~d0 & Echo Current Drive: "%~d0" >> Uninstall.log
 
-Cd %~DP0 & Echo Uninstall Path: "%Cd%" >> Install.log
+Cd %~dp0 & Echo Uninstall Path: "%Cd%" >> Install.log
 
 :: If you added path "%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\" or "%SystemRoot%\Microsoft.NET\Framework64\v4.0.30319\"
 InstallUtil /U KeLi.HelloWindowService.App.exe >> Uninstall.log
