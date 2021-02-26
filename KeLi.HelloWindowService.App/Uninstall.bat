@@ -21,9 +21,6 @@ echo You are getting admin privileges.
 echo.>> Uninstall.log
 echo ++++++++++ %date% %time% ++++++++++ >> Uninstall.log
 
-:: If the bat file isn't on current drive, should [cd] to current drive letter.
-%~d0 & echo Current Drive: "%~d0" >> Uninstall.log
-
 cd %~dp0 & echo Uninstall Path: "%cd%" >> Install.log
 
 :: If you added path "%systemroot%\Microsoft.NET\Framework\v4.0.30319\" or "%systemroot%\Microsoft.NET\Framework64\v4.0.30319\"
