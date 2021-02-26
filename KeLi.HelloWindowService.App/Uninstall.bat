@@ -1,30 +1,30 @@
-@Echo Off & Color 17
+@echo off & color 17
 
-if Exist "%SystemRoot%\SysWOW64" Path %path%;%windir%\SysNative;%SystemRoot%\SysWOW64;%~dp0
+if exist "%systemroot%\SysWOW64" path %path%;%windir%\SysNative;%systemroot%\SysWOW64;%~dp0
                 
-Bcdedit > Nul
+bcdedit > nul
 
-If '%errorlevel%' NEQ '0' (Goto UACPrompt) Else (Goto UACAdmin)
+if '%errorlevel%' neq '0' (goto UACPrompt) else (goto UACAdmin)
 
 :UACPrompt
-%1 start "" mshta vbscript:createobject("shell.application").shellexecute("""%~0""","::",,"runas",1)(window.close) & Exit
-Exit /B
+%1 start "" mshta vbscript:createobject("shell.application").shellexecute("""%~0""","::",,"runas",1)(window.close) & exit
+exit /b
 
 :UACAdmin
-Cd /D "%~dp0"
+cd /d "%~dp0"
 
-Echo Current Path: "%Cd%"
-Echo You are getting admin privileges.
+echo Current Path: "%cd%"
+echo You are getting admin privileges.
 
 :: Please insert your script...
 
-Echo.>> Uninstall.log
-Echo ++++++++++ %DATE% %TIME% ++++++++++ >> Uninstall.log
+echo.>> Uninstall.log
+echo ++++++++++ %date% %time% ++++++++++ >> Uninstall.log
 
-:: If the bat file isn't on current drive, should [Cd] to current drive letter.
-%~d0 & Echo Current Drive: "%~d0" >> Uninstall.log
+:: If the bat file isn't on current drive, should [cd] to current drive letter.
+%~d0 & echo Current Drive: "%~d0" >> Uninstall.log
 
-Cd %~dp0 & Echo Uninstall Path: "%Cd%" >> Install.log
+cd %~dp0 & echo Uninstall Path: "%cd%" >> Install.log
 
-:: If you added path "%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\" or "%SystemRoot%\Microsoft.NET\Framework64\v4.0.30319\"
-InstallUtil /U KeLi.HelloWindowService.App.exe >> Uninstall.log
+:: If you added path "%systemroot%\Microsoft.NET\Framework\v4.0.30319\" or "%systemroot%\Microsoft.NET\Framework64\v4.0.30319\"
+installutil /u KeLi.HelloWindowService.App.exe >> Uninstall.log
